@@ -35,28 +35,45 @@ Page({
                 const ctx = canvas.getContext('2d');
                 const dpr = wx.getSystemInfoSync().pixelRatio;
                 canvas.height = res[0].height * dpr;
-                canvas.weight = res[0].weight * dpr;
+                // canvas.weight = res[0].weight * dpr;
+                canvas.width = res[0].width * dpr;
                 ctx.scale(dpr, dpr);
                 let img = canvas.createImage();
                 img.src = "/img/background.png";
                 img.onload = function () {
-                    ctx.drawImage(img, 10, 10, 150, 225);
+                    ctx.drawImage(img, 0, 0, 300, 300);
                     for (let i = 0; i <= 15; i++) {
-                        ctx.moveTo(10 + i * 10, 10);
-                        ctx.lineTo(10 + i * 10, 235);
+                        ctx.moveTo(i * 20, 0);
+                        ctx.lineTo(i * 20, 300);
                         ctx.stroke();
-                        ctx.moveTo(10, 10 + i * 15);
-                        ctx.lineTo(160, 10 + i * 15);
+                        ctx.moveTo(0, i * 20);
+                        ctx.lineTo(300, i * 20);
                         ctx.stroke();
                     }
+                    ctx.beginPath();
+                    ctx.arc(60,60, 3, 0, 2*Math.PI);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(12*20,3*20, 3, 0, 2*Math.PI);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(3*20,12*20, 3, 0, 2*Math.PI);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(12*20,12*20, 3, 0, 2*Math.PI);
+                    ctx.closePath();
+                    ctx.fill();
                 }
                 // ctx.fillRect(10,160,10,160);
             })
     },
     start(e) {
         this.setData({
-            x: e.touches[0].x,
-            y: e.touches[0].y
+            x: (e.touches[0].x)/20,
+            y: (e.touches[0].y)/20
         });
 
     },
