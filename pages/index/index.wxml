@@ -8,7 +8,7 @@
     </swiper>
     <van-grid column-num="5" gutter="5" border="false">
         <van-grid-item icon="photo-o" text="升降战" />
-        <van-grid-item icon="photo-o" text="自由战" url="/pages/index/freeCombat/freeCombat" />
+        <van-grid-item icon="photo-o" text="自由战" bind:click="click2" />
         <van-grid-item icon="photo-o" text="研究" />
         <van-grid-item icon="photo-o" text="报告" />
         <van-grid-item icon="photo-o" text="直播" />

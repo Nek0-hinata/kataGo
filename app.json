@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/transfer/transfer",
     "pages/index/freeCombat/freeCombat",
     "pages/course/course",
     "pages/user/user",

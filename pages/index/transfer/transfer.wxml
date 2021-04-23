@@ -1,0 +1,58 @@
+<view class="container">
+<!--
+    <van-cell-group>
+        <van-grid colum-num="3" icon-size="0" gutter="10">
+            <van-grid-item text="15路棋盘"></van-grid-item>
+            <van-grid-item text="五子获胜"></van-grid-item>
+            <van-grid-item text="黑子先行"></van-grid-item>
+        </van-grid>
+    </van-cell-group>
+-->
+    <view class="points">规则</view>
+    <view class="Flex">
+        <view class="FlexSon">15路棋盘</view>
+        <view class="FlexSon">五子获胜</view>
+        <view class="FlexSon">五子获胜</view>
+    </view>
+    <view class="points">棋手</view>
+    <view class="Flex">
+        <view class="FlexSon2" bind:tap="show">{{firstName}}</view>
+        <view class="FlexSon2" bind:tap="show1">{{timeName}}</view>
+        <block wx:if="{{time}}">
+            <view class="FlexSon3" bind:tap="show2">{{minName}}</view>
+            <view class="FlexSon3" bind:tap="show3">{{secName}}</view>
+            <view class="FlexSon3" bind:tap="show4">{{finName}}</view>
+        </block>
+    </view>
+    <van-button type="primary" block style="position:fixed; bottom:20rpx; width: 750rpx;" bind:click="submit">开始对弈</van-button>
+    <van-action-sheet
+            show="{{ show }}"
+            actions="{{ actions1 }}"
+            bind:click-overlay="close"
+            bind:select="first"
+    />
+    <van-action-sheet
+            show="{{ show1 }}"
+            actions="{{ actions2 }}"
+            bind:click-overlay="close1"
+            bind:select="times"
+    />
+    <van-action-sheet
+            show="{{ show2 }}"
+            actions="{{ actions3 }}"
+            bind:click-overlay="close2"
+            bind:select="mins"
+    />
+    <van-action-sheet
+            show="{{ show3 }}"
+            actions="{{ actions4 }}"
+            bind:click-overlay="close3"
+            bind:select="secs"
+    />
+    <van-action-sheet
+            show="{{ show4 }}"
+            actions="{{ actions5 }}"
+            bind:click-overlay="close4"
+            bind:select="fin"
+    />
+</view>

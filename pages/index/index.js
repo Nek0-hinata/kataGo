@@ -12,5 +12,15 @@ Page({
     },
     onShow() {
         this.getTabBar().init();
+    },
+    click2() {
+        wx.navigateTo({
+            url: '/pages/index/transfer/transfer',
+            success(res) {
+                res.eventChannel.emit('transfer', {
+                    destination: '/freeCombat/freeCombat'
+                })
+            }
+        })
     }
 });
