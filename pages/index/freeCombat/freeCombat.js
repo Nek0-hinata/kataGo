@@ -1,24 +1,36 @@
-
 Page({
     data: {
         x: 0,
         y: 0,
-        vis: [],
+        vis: null,
         vec: [
-            [0, 1],
-            [1, 0],
-            [0, -1],
-            [-1, 0]
-        ]
+            [
+                [1, 0],
+                [-1, 0]
+            ],
+            [
+                [0, 1],
+                [0, -1]
+            ],
+            [
+                [1, 1],
+                [-1, -1]
+            ],
+            [
+                [1, -1],
+                [-1, 1]
+            ]
+        ],
+        black: false
     },
     onLoad: function (options) {
         this.init();
     },
     init() {
-        for (let i = 0; i < 15; i++){
-            for (let j = 0; j < 15; j++){
+        for (let i = 0; i <= 15; i++) {
+            for (let j = 0; j <= 15; j++) {
                 this.setData({
-                    [`vis[${i*15+j}]`]: 0
+                    [`vis[${i}][${j}]`]: -1
                 });
             }
         }
@@ -51,19 +63,19 @@ Page({
                         ctx.stroke();
                     }
                     ctx.beginPath();
-                    ctx.arc(60,60, 3, 0, 2*Math.PI);
+                    ctx.arc(60, 60, 3, 0, 2 * Math.PI);
                     ctx.closePath();
                     ctx.fill();
                     ctx.beginPath();
-                    ctx.arc(12*20,3*20, 3, 0, 2*Math.PI);
+                    ctx.arc(12 * 20, 3 * 20, 3, 0, 2 * Math.PI);
                     ctx.closePath();
                     ctx.fill();
                     ctx.beginPath();
-                    ctx.arc(3*20,12*20, 3, 0, 2*Math.PI);
+                    ctx.arc(3 * 20, 12 * 20, 3, 0, 2 * Math.PI);
                     ctx.closePath();
                     ctx.fill();
                     ctx.beginPath();
-                    ctx.arc(12*20,12*20, 3, 0, 2*Math.PI);
+                    ctx.arc(12 * 20, 12 * 20, 3, 0, 2 * Math.PI);
                     ctx.closePath();
                     ctx.fill();
                 }
@@ -72,12 +84,98 @@ Page({
     },
     start(e) {
         this.setData({
-            x: (e.touches[0].x)/20,
-            y: (e.touches[0].y)/20
+            x: Math.round((e.touches[0].x) / 20),
+            y: Math.round((e.touches[0].y) / 20)
         });
-
+        this.drawPiece()
+            .then((res) => {
+                if (this.ifWin()){
+                    let msg;
+                    if (this.data.black){
+                        msg = '黑方'
+                    } else {
+                        msg = '白方'
+                    }
+                    wx.showModal({
+                        title: '赢了!',
+                        content: `${msg}获胜`,
+                        showCancel: false,
+                        success(res) {
+                            if(res.confirm){
+                                wx.navigateBack();
+                            }
+                        }
+                    })
+                }
+            })
     },
-    oneStep() {
-        
+    ifWin() {
+        let x = this.data.x;
+        let y = this.data.y;
+        let z = 0;
+        for (let i = 0; i < 4; i++) {
+            if(this.count(i, z) === 5){
+                return true;
+            }
+        }
+        return false;
+    },
+    count(n, i) {
+        let dx = this.data.x;
+        let dy = this.data.y;
+        let count = 1, max = 1;
+        while (dx >= 0 && dx <= 15 && dy >= 0 && dx <= 15 && i < 2) {
+            dx += this.data.vec[n][i][0];
+            dy += this.data.vec[n][i][1];
+            if ((this.data.vis[dx][dy] == this.data.black) && this.data.vis[dx][dy] != -1) {
+                count++;
+                if(max < count){
+                    max = count;
+                }
+            } else {
+                i++;
+                dx = this.data.x;
+                dy = this.data.y;
+            }
+        }
+        return max;
+    },
+    drawPiece() {
+        const that = this;
+        let x = this.data.x;
+        let y = this.data.y;
+        return new Promise((resolve, reject) => {
+            wx.createSelectorQuery()
+                .select("#myCanvas")
+                .fields({
+                    node: true,
+                })
+                .exec((res) => {
+                    const canvas = res[0].node;
+                    const ctx = canvas.getContext('2d');
+                    ctx.beginPath();
+                    ctx.arc(x * 20, y * 20, 10, 0, 2 * Math.PI);
+                    ctx.closePath();
+                    if (that.data.vis[x][y] === -1) {
+                        if (!that.data.black) {
+                            ctx.fillStyle = "black"
+                            ctx.fill();
+                            that.setData({
+                                black: true,
+                                [`vis[${x}][${y}]`]: 1
+                            })
+                        } else {
+                            ctx.fillStyle = "white";
+                            ctx.fill();
+                            that.setData({
+                                black: false,
+                                [`vis[${x}][${y}]`]: 0
+                            })
+                        }
+                        resolve(res);
+                    }
+                })
+        })
+
     }
 });

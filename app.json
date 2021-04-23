@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/freeCombat/freeCombat",
     "pages/index/index",
+    "pages/index/freeCombat/freeCombat",
     "pages/course/course",
     "pages/user/user",
     "pages/shop/shop"
@@ -9,7 +9,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "五子棋",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
