@@ -1,13 +1,36 @@
 {
-  "pages":[
+  "pages": [
+    "pages/index/freeCombat/freeCombat",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/course/course",
+    "pages/user/user",
+    "pages/shop/shop"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/index/index"
+      },
+      {
+        "pagePath": "pages/course/course"
+      },
+      {
+        "pagePath": "pages/shop/shop"
+      },
+      {
+        "pagePath": "pages/user/user"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

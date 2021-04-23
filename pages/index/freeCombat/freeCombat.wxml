@@ -1,0 +1,5 @@
+<view>
+    <canvas id="myCanvas" type="2d" class="Canvas"
+    bindtouchstart="start"></canvas>
+    <view>Coordinates:({{x}},{{y}})</view>
+</view>
