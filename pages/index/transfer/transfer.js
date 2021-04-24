@@ -194,21 +194,25 @@ Page({
         })
     },
     submit() {
+        const that = this;
+        console.log(`pages/index${this.data.destination}`);
         wx.navigateTo({
-            url: `pages/index${this.data.destination}`,
+            url: `/pages/index${that.data.destination}`,
             success(res) {
                 let d = 0;
-                if(this.data.time){
+                if(that.data.time){
                     d = {
-                        min: this.data.min,
-                        sec: this.data.sec,
-                        fin: this.data.fin
+                        min: that.data.min,
+                        sec: that.data.sec,
+                        fin: that.data.fin
                     }
-                };
+                }
                 res.eventChannel.emit('transferTo', {
-                    first: this.data.first,
-                    time: this.data.time,
-                    data: d
+                    data: {
+                        first: that.data.first,
+                        time: that.data.time,
+                        detail: d
+                    }
                 })
             }
         })

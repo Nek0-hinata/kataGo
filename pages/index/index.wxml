@@ -18,4 +18,7 @@
         <van-grid-item icon="photo-o" text="特训" />
         <van-grid-item icon="photo-o" text="闯关" />
     </van-grid>
+    <van-popup show="{{isFirst}}" bind:close="onClose">
+        <view style="margin: 100rpx;">你有一个新手大礼包！</view>
+    </van-popup>
 </view>

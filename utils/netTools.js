@@ -24,7 +24,7 @@ function login() {
     return new Promise((resolve, reject) => {
         wx.login({
             success(res) {
-                console.log(res.code)
+                // console.log(res.code)
                 if (res.code) {
                     Auth.request({
                         url: '/login',
@@ -34,7 +34,7 @@ function login() {
                         method: 'POST'
                     }, false)
                         .then((res2) => {
-                            console.log(res2)
+                            // console.log(res2)
                             if (res2.header.token) {
                                 wx.setStorageSync('token', res2.header.token);
                                 resolve(res2);

@@ -24,6 +24,10 @@ Page({
         black: false
     },
     onLoad: function (options) {
+        let eventChanel = this.getOpenerEventChannel();
+        eventChanel.on('transferTo', (data) => {
+            console.log(data);
+        })
         this.init();
     },
     init() {
@@ -102,7 +106,9 @@ Page({
                         showCancel: false,
                         success(res) {
                             if(res.confirm){
-                                wx.navigateBack();
+                                wx.navigateBack({
+                                    delta: 10
+                                });
                             }
                         }
                     })
