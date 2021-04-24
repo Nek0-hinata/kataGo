@@ -1,8 +1,14 @@
 <view>
     <van-cell>
-        <van-cell>
-            <view>
-<!--                <open-data type="userAvatarUrl" id="Avatar"></open-data>-->
+        <van-cell is-link center>
+            <view style="display: flex; justify-content: space-between;">
+                <view id="Avatar">
+                    <open-data type="userAvatarUrl"></open-data>
+                </view>
+                <view id="nickName" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <open-data type="userNickName"></open-data>
+                    <view>无等级</view>
+                </view>
             </view>
         </van-cell>
     </van-cell>
@@ -52,6 +58,6 @@
                   is-link
                   icon="setting-o"
                   link-type="navigateTo"
-                  url="/pages/index"></van-cell>
+                  url="setting/setting"></van-cell>
     </van-cell-group>
 </view>

@@ -1,0 +1,10 @@
+<view>
+    <van-cell-group>
+        <van-cell title="主题" is-link></van-cell>
+        <van-cell title="语言" is-link></van-cell>
+        <van-cell title="声音" is-link></van-cell>
+        <van-cell title="字幕" is-link></van-cell>
+        <van-cell title="对弈设置" is-link></van-cell>
+        <van-cell title="研究设置" is-link></van-cell>
+    </van-cell-group>
+</view>

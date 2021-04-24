@@ -1,4 +1,7 @@
 #Avatar{
-    width: 10px;
-    height: 10px;
+    width: 100rpx;
+    height: 100rpx;
+}
+#nickName{
+    margin: 0 25rpx;
 }

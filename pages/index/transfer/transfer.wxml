@@ -8,13 +8,13 @@
         </van-grid>
     </van-cell-group>
 -->
-    <view class="points">规则</view>
+    <view class="points" style="font-size: 14px">规则</view>
     <view class="Flex">
         <view class="FlexSon">15路棋盘</view>
         <view class="FlexSon">五子获胜</view>
         <view class="FlexSon">五子获胜</view>
     </view>
-    <view class="points">棋手</view>
+    <view class="points" style="font-size: 14px">棋手</view>
     <view class="Flex">
         <view class="FlexSon2" bind:tap="show">{{firstName}}</view>
         <view class="FlexSon2" bind:tap="show1">{{timeName}}</view>

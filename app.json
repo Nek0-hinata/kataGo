@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/index/transfer/transfer",
     "pages/index/freeCombat/freeCombat",
-    "pages/course/course",
     "pages/user/user",
-    "pages/shop/shop"
+    "pages/index/transfer/transfer",
+    "pages/course/course",
+    "pages/shop/shop",
+    "pages/user/setting/setting"
   ],
   "window": {
     "backgroundTextStyle": "light",

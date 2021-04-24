@@ -12,3 +12,50 @@
 .FlexText{
     display: inline;
 }
+.FlexT{
+    display: flex;
+    justify-content: space-between;
+}
+.hei{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    top: 40px;
+    left: 40px;
+    z-index: 10;
+}
+.cnt{
+    position: relative;
+}
+.recommend{
+    margin: 30rpx 0;
+}
+.bai{
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 40px;
+    left: 0;
+    border-radius: 10px;
+    z-index: 10;
+}
+.Img{
+    height: 45px;
+    width: 45px;
+    margin: 0 5px 0;
+}
+.rules{
+    background-color: #EBEDEF;
+    padding: 3px;
+    margin-left: -15px;
+    border-radius: 10px;
+}
+#report{
+    padding: 1px 5px;
+    margin: 0 5px 2px 0;
+    background-color: #5DADE2;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+}

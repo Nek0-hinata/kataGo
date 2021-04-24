@@ -1,4 +1,4 @@
-<view>
+<view style="padding-bottom: 100rpx;">
     <swiper indicator-dots autoplay circular>
         <block wx:for="{{imgUrls}}" wx:key="unique">
             <swiper-item>
@@ -7,17 +7,55 @@
         </block>
     </swiper>
     <van-grid column-num="5" gutter="5" border="false">
-        <van-grid-item icon="photo-o" text="升降战" />
-        <van-grid-item icon="photo-o" text="自由战" bind:click="click2" />
-        <van-grid-item icon="photo-o" text="研究" />
-        <van-grid-item icon="photo-o" text="报告" />
-        <van-grid-item icon="photo-o" text="直播" />
-        <van-grid-item icon="photo-o" text="拍照识别" />
-        <van-grid-item icon="photo-o" text="记谱" />
-        <van-grid-item icon="photo-o" text="棋谱库" />
-        <van-grid-item icon="photo-o" text="特训" />
-        <van-grid-item icon="photo-o" text="闯关" />
+        <van-grid-item icon="fire-o" text="升降战" />
+        <van-grid-item icon="bullhorn-o" text="自由战" bind:click="click2" />
+        <van-grid-item icon="hotel-o" text="研究" />
+        <van-grid-item icon="notes-o" text="报告" />
+        <van-grid-item icon="cashier-o" text="直播" />
+        <van-grid-item icon="qr" text="拍照识别" />
+        <van-grid-item icon="records" text="记谱" />
+        <van-grid-item icon="logistics" text="棋谱库" />
+        <van-grid-item icon="aim" text="特训" />
+        <van-grid-item icon="warn-o" text="闯关" />
     </van-grid>
+    <van-cell-group title="热门推荐">
+        <block wx:for="{{recommend}}">
+            <van-cell clickable>
+                <view slot="title" style="display: flex; flex-direction: column;">
+                    <view style="display: flex;">
+                        <view id="report">大赛报告</view>
+                        <view>{{item.info}}</view>
+                    </view>
+                    <view  class="FlexT">
+                        <view style="display: flex; justify-content: space-around;">
+                            <view class="cnt">
+                                <image src="{{item.blackImg}}" class="Img" mode="aspectFill"></image>
+                                <image src="/img/black.png" class="hei"></image>
+                            </view>
+                            <view >
+                                <view>{{item.blackName}}</view>
+                                <view>{{item.blackLoc}}</view>
+                            </view>
+                        </view>
+                        <view>
+                            <view>{{item.times}}手</view>
+                            <view class="rules">{{item.rules}}</view>
+                        </view>
+                        <view style="display: flex; justify-content: space-around">
+                            <view >
+                                <view>{{item.whiteName}}</view>
+                                <view>{{item.whiteLoc}}</view>
+                            </view>
+                            <view style="position: relative">
+                                <image src="{{item.whiteImg}}" class="Img" mode="aspectFill"></image>
+                                <image src="/img/white.png" class="bai"></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </van-cell>
+        </block>
+    </van-cell-group>
     <van-popup show="{{isFirst}}" bind:close="onClose">
         <view style="margin: 100rpx;">你有一个新手大礼包！</view>
     </van-popup>
