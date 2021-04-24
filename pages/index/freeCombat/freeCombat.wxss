@@ -1,3 +1,7 @@
+@keyframes turnAround {
+    from {transform: rotate3d(0, 1, 0, 0deg);}
+    to {transform: rotate3d(0, 1, 0, 360deg);}
+}
 .Canvas{
     height: 300px;
     width: 300px;
@@ -15,6 +19,8 @@
     top: 35px;
     left: -15px;
     z-index: 10;
+    animation: turnAround 3s ;
+    animation-iteration-count: var(--animation-iteration-count);
 }
 .bai{
     position: absolute;
@@ -24,4 +30,6 @@
     top: 40px;
     left: -3px;
     z-index: 10;
+    animation: turnAround 3s ;
+    animation-iteration-count: var(--animation-iteration-count);
 }

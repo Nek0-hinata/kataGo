@@ -1,3 +1,5 @@
+const START = `--animation-iteration-count: infinite;`
+const STOP = `--animation-iteration-count: 0;`
 Page({
     data: {
         x: 0,
@@ -21,7 +23,9 @@ Page({
                 [-1, 1]
             ]
         ],
-        black: false
+        black: false,
+        blackM: START,
+        whiteM: STOP
     },
     onLoad: function (options) {
         let eventChanel = this.getOpenerEventChannel();
@@ -168,14 +172,18 @@ Page({
                             ctx.fill();
                             that.setData({
                                 black: true,
-                                [`vis[${x}][${y}]`]: 1
+                                [`vis[${x}][${y}]`]: 1,
+                                whiteM: START,
+                                blackM: STOP
                             })
                         } else {
                             ctx.fillStyle = "white";
                             ctx.fill();
                             that.setData({
                                 black: false,
-                                [`vis[${x}][${y}]`]: 0
+                                [`vis[${x}][${y}]`]: 0,
+                                whiteM: STOP,
+                                blackM: START
                             })
                         }
                         resolve(res);

@@ -7,7 +7,7 @@
             <view style="display: flex; flex-direction: column; justify-content: space-around;">
                 <view style="font-size: 14px; position: relative;">
                     <open-data type="userNickName"></open-data>
-                    <image src="/img/black.png" class="hei"></image>
+                    <image src="/img/black.png" class="hei" style="{{blackM}}"></image>
                 </view>
                 <view style="font-size: 12px">无等级</view>
             </view>
@@ -21,7 +21,7 @@
             </view>
             <view id="Avatar" style="position: relative;">
                 <open-data type="userAvatarUrl"></open-data>
-                <image src="/img/white1.png" class="bai"></image>
+                <image src="/img/white1.png" class="bai" style="{{whiteM}}"></image>
             </view>
         </view>
     </view>
